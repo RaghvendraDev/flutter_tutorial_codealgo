@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 class MyTheme {
   static Color loginButtonColor = Colors.purple;
   static Color signupButtonColor = Colors.grey.shade400;
+  static Color loginPageBoxColor = Color(0xffccccff);
 
   static ThemeData lightTheme(BuildContext context) => ThemeData(
         canvasColor: Colors.white,
@@ -33,7 +34,7 @@ class MyTheme {
         colorScheme: ColorScheme(
           primary: Colors.white,
           primaryVariant: Colors.white,
-          secondary: Colors.white,
+          secondary: Colors.black,
           secondaryVariant: Colors.white,
           surface: Colors.cyan.shade50,
           background: Colors.cyan.shade100,

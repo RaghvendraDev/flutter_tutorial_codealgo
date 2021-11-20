@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:welcome_loginsignup_dashboard/view/custom_widget/my_theme.dart';
+import 'package:welcome_loginsignup_dashboard/view/login/login_page.dart';
 import 'package:welcome_loginsignup_dashboard/view/welcome_page/components/background.dart';
 import 'package:welcome_loginsignup_dashboard/view/welcome_page/components/custom_button.dart';
 
@@ -28,7 +29,9 @@ class WelcomePage extends StatelessWidget {
                 buttonColor: MyTheme.loginButtonColor,
                 buttontext: "LOGIN",
                 textColor: Colors.white,
-                handleButtonClick: loginButtonClickHandler,
+                handleButtonClick: () {
+                  loginButtonClickHandler(context);
+                },
               ),
               SizedBox(
                 height: 20,
@@ -46,8 +49,11 @@ class WelcomePage extends StatelessWidget {
     );
   }
 
-  loginButtonClickHandler() {
+  loginButtonClickHandler(BuildContext context) {
     print("Login Clicked");
+
+    Navigator.push(
+        context, MaterialPageRoute(builder: (builder) => LoginPage()));
   }
 
   signUpButtonClickHandler() {
