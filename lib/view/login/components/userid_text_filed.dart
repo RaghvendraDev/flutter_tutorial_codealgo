@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:welcome_loginsignup_dashboard/view/custom_widget/my_theme.dart';
-
 class UserIdTextField extends StatelessWidget {
   const UserIdTextField({
     Key? key,
