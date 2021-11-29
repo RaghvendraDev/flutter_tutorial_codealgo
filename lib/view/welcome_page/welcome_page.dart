@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:welcome_loginsignup_dashboard/view/custom_widget/my_theme.dart';
 import 'package:welcome_loginsignup_dashboard/view/login/login_page.dart';
+import 'package:welcome_loginsignup_dashboard/view/signup/signup.dart';
 import 'package:welcome_loginsignup_dashboard/view/welcome_page/components/background.dart';
 import 'package:welcome_loginsignup_dashboard/view/welcome_page/components/custom_button.dart';
 
@@ -40,7 +41,9 @@ class WelcomePage extends StatelessWidget {
                 buttonColor: MyTheme.signupButtonColor,
                 buttontext: "SIGNUP",
                 textColor: Colors.black,
-                handleButtonClick: signUpButtonClickHandler,
+                handleButtonClick: () {
+                  signUpButtonClickHandler(context);
+                },
               ),
             ],
           ),
@@ -56,7 +59,7 @@ class WelcomePage extends StatelessWidget {
         context, MaterialPageRoute(builder: (builder) => LoginPage()));
   }
 
-  signUpButtonClickHandler() {
-    print("Signup Clicked");
+  signUpButtonClickHandler(BuildContext context) {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp()));
   }
 }
