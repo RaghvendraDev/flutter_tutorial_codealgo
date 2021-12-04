@@ -31,9 +31,9 @@ class GenderSelection extends StatelessWidget {
               Obx(
                 () => Radio(
                   value: "Male",
-                  groupValue: genderSelectionController.genderValue.value,
+                  groupValue: genderSelectionController.selectedGender.value,
                   onChanged: (value) {
-                    genderSelectionController.changeGenderStatus();
+                    genderSelectionController.onChnageGender(value);
                   },
                   activeColor: Colors.purple,
                   fillColor: MaterialStateProperty.all(Colors.purple),
@@ -53,9 +53,9 @@ class GenderSelection extends StatelessWidget {
             children: [
               Obx(() => Radio(
                     value: "Female",
-                    groupValue: genderSelectionController.genderValue.value,
+                    groupValue: genderSelectionController.selectedGender.value,
                     onChanged: (value) {
-                      genderSelectionController.changeGenderStatus();
+                      genderSelectionController.onChnageGender(value);
                     },
                     activeColor: Colors.purple,
                     fillColor: MaterialStateProperty.all(Colors.purple),
