@@ -3,8 +3,7 @@ import 'package:get/get.dart';
 import 'package:welcome_loginsignup_dashboard/controller/gender_selection_controller.dart';
 
 class GenderSelection extends StatelessWidget {
-  GenderSelectionController genderSelectionController =
-      Get.put(GenderSelectionController());
+  GenderSelectionController genderSelectionController = Get.find();
 
   GenderSelection({
     Key? key,
