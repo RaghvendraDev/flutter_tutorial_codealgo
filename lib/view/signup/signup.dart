@@ -109,13 +109,16 @@ class SignUp extends StatelessWidget {
                 SignUpTextFieldDecorator(
                   child: GenderSelection(),
                 ),
-                CustomButton(
-                    buttonColor: MyTheme.loginButtonColor,
-                    buttontext: "Sign Up",
-                    textColor: Colors.white,
-                    handleButtonClick: () {
-                      signup();
-                    }),
+                signUpController.isSendingData.value == false
+                    ? CustomButton(
+                        buttonColor: MyTheme.loginButtonColor,
+                        buttontext: "Sign Up",
+                        textColor: Colors.white,
+                        handleButtonClick: () {
+                          signup();
+                        },
+                      )
+                    : CircularProgressIndicator(),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

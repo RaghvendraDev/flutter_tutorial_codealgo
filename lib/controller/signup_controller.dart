@@ -19,6 +19,8 @@ class SignUpController extends GetxController {
   String userPass = "";
   String userGender = "";
 
+  var isSendingData = false.obs;
+
   void setProfileImagePath(String path) {
     profilePicPath.value = path;
     isProficPicPathSet.value = true;
@@ -75,6 +77,8 @@ class SignUpController extends GetxController {
   }
 
   Future<void> sendUserDataToServer() async {
+    isSendingData.value = true;
+
     Map<String, dynamic> dataBody = {
       CustomWebServices.PROFILE_IMAGE: profileImageBase64,
       CustomWebServices.USER_NAME: userName,
@@ -92,6 +96,7 @@ class SignUpController extends GetxController {
     // print(response);
 
     if (response.statusCode == 200) {
+      isSendingData.value = false;
       Map<String, dynamic> responseData = jsonDecode(response.body);
 
       if (responseData['r_msg'] == "success") {
@@ -115,6 +120,16 @@ class SignUpController extends GetxController {
           borderWidth: 2,
         );
       }
+    } else {
+      isSendingData.value = false;
+      Get.snackbar(
+        "Sign Up Failed",
+        "API Problem",
+        backgroundColor: Colors.black,
+        snackPosition: SnackPosition.BOTTOM,
+        borderRadius: 10,
+        borderWidth: 2,
+      );
     }
   }
 }

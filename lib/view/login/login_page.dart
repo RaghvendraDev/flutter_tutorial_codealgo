@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:welcome_loginsignup_dashboard/controller/login_controller.dart';
 import 'package:welcome_loginsignup_dashboard/view/custom_widget/my_theme.dart';
 import 'package:welcome_loginsignup_dashboard/view/login/components/login_background.dart';
 import 'package:welcome_loginsignup_dashboard/view/login/components/password_field.dart';
@@ -12,11 +14,13 @@ class LoginPage extends StatelessWidget {
   TextEditingController useridController = TextEditingController();
   TextEditingController passController = TextEditingController();
 
-  String userIdErrorText = "User Id can not be empty";
-  String userIdHintText = "Enter User Id";
+  String userIdErrorText = "Mobile number Can not be empty";
+  String userIdHintText = "Enter Mobile Number";
   Color userIdHintTextColor = Colors.purple;
-  IconData useridTextFieldPrefixIcon = Icons.person;
+  IconData useridTextFieldPrefixIcon = Icons.phone;
   Color useridTextFieldPrefixIconColor = Colors.purple;
+
+  LoginController loginController = Get.put(LoginController());
 
   LoginPage({Key? key}) : super(key: key);
 
@@ -59,7 +63,7 @@ class LoginPage extends StatelessWidget {
                     TextFieldDecorator(
                       child: UserPassTextField(
                         userPassController: passController,
-                        userPassErrorText: "PasswordcCan not be empty",
+                        userPassErrorText: "Password can not be empty",
                         userPassHintText: "Enter Password",
                         userPassHintTextColor: Colors.purple,
                         userPassTextFieldPrefixIcon: Icons.lock,
@@ -71,13 +75,17 @@ class LoginPage extends StatelessWidget {
                         },
                       ),
                     ),
-                    CustomButton(
-                      buttonColor: MyTheme.loginButtonColor,
-                      buttontext: "LOGIN",
-                      textColor: Colors.white,
-                      handleButtonClick: () {
-                        print("Login");
-                      },
+                    Obx(
+                      () => loginController.isDataSubmitting.value == false
+                          ? CustomButton(
+                              buttonColor: MyTheme.loginButtonColor,
+                              buttontext: "LOGIN",
+                              textColor: Colors.white,
+                              handleButtonClick: () {
+                                userLogin();
+                              },
+                            )
+                          : CircularProgressIndicator(),
                     ),
                     const SizedBox(
                       height: 20,
@@ -119,5 +127,19 @@ class LoginPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void userLogin() {
+    final _isValid = _formKey.currentState!.validate();
+    if (_isValid) {
+      // print(useridController.text);
+      // print(passController.text);
+
+      loginController.loginWithDetail(
+          useridController.text, passController.text);
+    }
+    {
+      return null;
+    }
   }
 }

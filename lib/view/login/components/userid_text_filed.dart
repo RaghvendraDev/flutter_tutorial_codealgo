@@ -23,6 +23,9 @@ class UserIdTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      maxLength: 10,
+      textInputAction: TextInputAction.next,
+      keyboardType: TextInputType.number,
       controller: useridController,
       validator: (value) {
         if (value!.isEmpty) {
@@ -37,6 +40,7 @@ class UserIdTextField extends StatelessWidget {
       cursorColor: Theme.of(context).colorScheme.secondary,
       style: TextStyle(color: Theme.of(context).colorScheme.secondary),
       decoration: InputDecoration(
+        counterText: "",
         hintText: userIdHintText,
         hintStyle: TextStyle(
           color: userIdHintTextColor,
