@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:welcome_loginsignup_dashboard/controller/login_controller.dart';
 import 'package:welcome_loginsignup_dashboard/view/custom_widget/my_theme.dart';
+import 'package:welcome_loginsignup_dashboard/view/dashboard/user_dashboard.dart';
 import 'package:welcome_loginsignup_dashboard/view/login/components/login_background.dart';
 import 'package:welcome_loginsignup_dashboard/view/login/components/password_field.dart';
 import 'package:welcome_loginsignup_dashboard/view/login/components/textfield_decorator.dart';

@@ -1,10 +1,12 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:welcome_loginsignup_dashboard/model/custom_webservices.dart';
 
 import 'package:http/http.dart' as http;
 import 'package:get/get.dart';
-import 'package:welcome_loginsignup_dashboard/model/user_data_model.dart';
+import 'package:welcome_loginsignup_dashboard/model/login_singelton.dart';
+
 import 'package:welcome_loginsignup_dashboard/model/user_model_list.dart';
 import 'package:welcome_loginsignup_dashboard/view/dashboard/user_dashboard.dart';
 
@@ -31,28 +33,57 @@ class LoginController extends GetxController {
       if (responseData['rMsg'] == "success") {
         //1. Model
 
+        //first way
+
         // UserDataList.profilePic =
         //     UserDataModel.fromMap(responseData).rUserProfileImg;
 
         // UserDataList.name = UserDataModel.fromMap(responseData).rUserName;
+
         // UserDataList.email = UserDataModel.fromMap(responseData).rUserEmail;
+
         // UserDataList.mobile = UserDataModel.fromMap(responseData).rUserMobile;
+
         // UserDataList.gender = UserDataModel.fromMap(responseData).rUserGender;
 
-        //model alternate
-        UserDataList.profilePic = responseData['rUserProfileImg'];
-        UserDataList.name = responseData['rUserName'];
-        UserDataList.email = responseData['rUserEmail'];
-        UserDataList.mobile = responseData['rUserMobile'];
-        UserDataList.gender = responseData['rUserGender'];
+        //second way
+
+        // UserDataList.profilePic = responseData['rUserProfileImg'];
+
+        // UserDataList.name = responseData['rUserName'];
+
+        // UserDataList.email = responseData['rUserEmail'];
+
+        // UserDataList.mobile = responseData['rUserMobile'];
+
+        // UserDataList.gender = responseData['rUserGender'];
 
         //TODO: //2. Singleton class
 
+        // LoginSingelton.setUserName(responseData['rUserName']);
+        // LoginSingelton.setUserEmail(responseData['rUserEmail']);
+        // LoginSingelton.setUserMobile(responseData['rUserMobile']);
+        // LoginSingelton.setUserGender(responseData['rUserGender']);
+        // LoginSingelton.setUserProfilePic(responseData['rUserProfileImg']);
+
         //TODO: 3. Shared Prefrences
+
+        SharedPreferences sharedPreferences =
+            await SharedPreferences.getInstance();
+
+        Map<String, String> data = {
+          "userProfile": responseData['rUserProfileImg'],
+          "userName": responseData['rUserName'],
+          "userEmail": responseData['rUserEmail'],
+          "userMobile": responseData['rUserMobile'],
+          "userGender": responseData['rUserGender'],
+        };
+
+        sharedPreferences.setString("userdata", json.encode(data));
 
         isDataReadingCompleted.value = true;
 
-        Get.to(UserDashboard());
+        Get.to(() => UserDashboard());
       } else {
         Get.snackbar(
           "Login Failed",
