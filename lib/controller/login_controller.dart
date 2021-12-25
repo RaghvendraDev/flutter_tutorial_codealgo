@@ -6,6 +6,7 @@ import 'package:welcome_loginsignup_dashboard/model/custom_webservices.dart';
 import 'package:http/http.dart' as http;
 import 'package:get/get.dart';
 import 'package:welcome_loginsignup_dashboard/model/login_singelton.dart';
+import 'package:welcome_loginsignup_dashboard/model/user_data_model.dart';
 
 import 'package:welcome_loginsignup_dashboard/model/user_model_list.dart';
 import 'package:welcome_loginsignup_dashboard/view/dashboard/user_dashboard.dart';
@@ -35,16 +36,16 @@ class LoginController extends GetxController {
 
         //first way
 
-        // UserDataList.profilePic =
-        //     UserDataModel.fromMap(responseData).rUserProfileImg;
+        UserDataList.profilePic =
+            UserDataModel.fromMap(responseData).rUserProfileImg;
 
-        // UserDataList.name = UserDataModel.fromMap(responseData).rUserName;
+        UserDataList.name = UserDataModel.fromMap(responseData).rUserName;
 
-        // UserDataList.email = UserDataModel.fromMap(responseData).rUserEmail;
+        UserDataList.email = UserDataModel.fromMap(responseData).rUserEmail;
 
-        // UserDataList.mobile = UserDataModel.fromMap(responseData).rUserMobile;
+        UserDataList.mobile = UserDataModel.fromMap(responseData).rUserMobile;
 
-        // UserDataList.gender = UserDataModel.fromMap(responseData).rUserGender;
+        UserDataList.gender = UserDataModel.fromMap(responseData).rUserGender;
 
         //second way
 
@@ -68,18 +69,18 @@ class LoginController extends GetxController {
 
         //TODO: 3. Shared Prefrences
 
-        SharedPreferences sharedPreferences =
-            await SharedPreferences.getInstance();
+        // SharedPreferences sharedPreferences =
+        //     await SharedPreferences.getInstance();
 
-        Map<String, String> data = {
-          "userProfile": responseData['rUserProfileImg'],
-          "userName": responseData['rUserName'],
-          "userEmail": responseData['rUserEmail'],
-          "userMobile": responseData['rUserMobile'],
-          "userGender": responseData['rUserGender'],
-        };
+        // Map<String, String> data = {
+        //   "userProfile": responseData['rUserProfileImg'],
+        //   "userName": responseData['rUserName'],
+        //   "userEmail": responseData['rUserEmail'],
+        //   "userMobile": responseData['rUserMobile'],
+        //   "userGender": responseData['rUserGender'],
+        // };
 
-        sharedPreferences.setString("userdata", json.encode(data));
+        // sharedPreferences.setString("userdata", json.encode(data));
 
         isDataReadingCompleted.value = true;
 
