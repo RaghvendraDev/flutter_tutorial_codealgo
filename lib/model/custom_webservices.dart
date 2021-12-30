@@ -5,6 +5,9 @@ class CustomWebServices {
   static String login_url =
       "https://thedigitalgamezone.com/Abhi/flutter-tutorial-api/loginUserAPI.php";
 
+  static String userprofileData_url =
+      "https://thedigitalgamezone.com/Abhi/flutter-tutorial-api/profileDataAPI.php";
+
   static String PROFILE_IMAGE = "userProfileImg";
   static String USER_NAME = "userName";
   static String USER_EMAIL = "userEmail";

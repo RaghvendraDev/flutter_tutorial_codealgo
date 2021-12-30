@@ -21,7 +21,7 @@ class LoginPage extends StatelessWidget {
   IconData useridTextFieldPrefixIcon = Icons.phone;
   Color useridTextFieldPrefixIconColor = Colors.purple;
 
-  LoginController loginController = Get.put(LoginController());
+  LoginController loginController = Get.find();
 
   LoginPage({Key? key}) : super(key: key);
 

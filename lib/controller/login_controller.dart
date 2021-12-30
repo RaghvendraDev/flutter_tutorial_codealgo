@@ -5,11 +5,9 @@ import 'package:welcome_loginsignup_dashboard/model/custom_webservices.dart';
 
 import 'package:http/http.dart' as http;
 import 'package:get/get.dart';
-import 'package:welcome_loginsignup_dashboard/model/login_singelton.dart';
-import 'package:welcome_loginsignup_dashboard/model/user_data_model.dart';
-
 import 'package:welcome_loginsignup_dashboard/model/user_model_list.dart';
-import 'package:welcome_loginsignup_dashboard/view/dashboard/user_dashboard.dart';
+import 'package:welcome_loginsignup_dashboard/view/home/home_page.dart';
+import 'package:welcome_loginsignup_dashboard/view/welcome_page/welcome_page.dart';
 
 class LoginController extends GetxController {
   var isDataSubmitting = false.obs;
@@ -29,62 +27,17 @@ class LoginController extends GetxController {
         body: dataToSend);
 
     if (response.statusCode == 200) {
+      SharedPreferences preferences = await SharedPreferences.getInstance();
+      preferences.setBool("isLoggedin", true);
+      preferences.setString("userid", id);
+
       isDataSubmitting.value = false;
+
+      Get.off(() => HomePage());
+
       Map<String, dynamic> responseData = jsonDecode(response.body);
       if (responseData['rMsg'] == "success") {
-        //1. Model
-
-        //first way
-
-        UserDataList.profilePic =
-            UserDataModel.fromMap(responseData).rUserProfileImg;
-
-        UserDataList.name = UserDataModel.fromMap(responseData).rUserName;
-
-        UserDataList.email = UserDataModel.fromMap(responseData).rUserEmail;
-
-        UserDataList.mobile = UserDataModel.fromMap(responseData).rUserMobile;
-
-        UserDataList.gender = UserDataModel.fromMap(responseData).rUserGender;
-
-        //second way
-
-        // UserDataList.profilePic = responseData['rUserProfileImg'];
-
-        // UserDataList.name = responseData['rUserName'];
-
-        // UserDataList.email = responseData['rUserEmail'];
-
-        // UserDataList.mobile = responseData['rUserMobile'];
-
-        // UserDataList.gender = responseData['rUserGender'];
-
-        //TODO: //2. Singleton class
-
-        // LoginSingelton.setUserName(responseData['rUserName']);
-        // LoginSingelton.setUserEmail(responseData['rUserEmail']);
-        // LoginSingelton.setUserMobile(responseData['rUserMobile']);
-        // LoginSingelton.setUserGender(responseData['rUserGender']);
-        // LoginSingelton.setUserProfilePic(responseData['rUserProfileImg']);
-
-        //TODO: 3. Shared Prefrences
-
-        // SharedPreferences sharedPreferences =
-        //     await SharedPreferences.getInstance();
-
-        // Map<String, String> data = {
-        //   "userProfile": responseData['rUserProfileImg'],
-        //   "userName": responseData['rUserName'],
-        //   "userEmail": responseData['rUserEmail'],
-        //   "userMobile": responseData['rUserMobile'],
-        //   "userGender": responseData['rUserGender'],
-        // };
-
-        // sharedPreferences.setString("userdata", json.encode(data));
-
         isDataReadingCompleted.value = true;
-
-        Get.to(() => UserDashboard());
       } else {
         Get.snackbar(
           "Login Failed",
@@ -106,5 +59,17 @@ class LoginController extends GetxController {
         borderWidth: 2,
       );
     }
+  }
+
+  Future<void> logout() async {
+    UserDataList.email = "";
+    UserDataList.name = "";
+    UserDataList.mobile = "";
+    UserDataList.profilePic = "";
+    UserDataList.gender = "";
+
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    sharedPreferences.setBool("isLoggedin", false);
+    Get.off(() => WelcomePage());
   }
 }

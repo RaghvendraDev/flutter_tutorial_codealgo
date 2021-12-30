@@ -176,8 +176,8 @@ class UserDetailsCard extends StatelessWidget {
                       boxShadow: [
                         BoxShadow(
                           blurRadius: 20,
-                          color: Colors.green,
-                          spreadRadius: 30,
+                          color: Colors.orange,
+                          spreadRadius: 20,
                         ),
                       ]),
                   child: CircleAvatar(
