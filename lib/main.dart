@@ -5,6 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:welcome_loginsignup_dashboard/controller/gender_selection_controller.dart';
 import 'package:welcome_loginsignup_dashboard/controller/login_controller.dart';
+import 'package:welcome_loginsignup_dashboard/view/cart/cart_page.dart';
 import 'package:welcome_loginsignup_dashboard/view/custom_widget/my_theme.dart';
 import 'package:welcome_loginsignup_dashboard/view/home/home_page.dart';
 import 'package:welcome_loginsignup_dashboard/view/welcome_page/welcome_page.dart';
@@ -42,7 +43,8 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       theme: MyTheme.lightTheme(context),
       darkTheme: MyTheme.darkTheme(context),
-      home: isLoggedIn ? HomePage() : WelcomePage(),
+      // home: isLoggedIn ? HomePage() : WelcomePage(),
+      home: CartPage(),
     );
   }
 }

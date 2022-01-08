@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "name": "Grey Yellow Jacket",
+    "desc": "Very Cool Jacket Ipsum sed duo labore et eos accusam et voluptua. Sed ut clita sadipscing lorem at ut et dolor. Voluptua nonumy et est lorem et, takimata stet dolores et eos sit erat et sit justo, stet vero voluptua sadipscing vero lorem at. Eos vero vero gubergren at duo et ipsum, ipsum.",
+    "price": 2000,
+    "color": "0xffffdb61",
+    "size" : "42",
+    "image": "assets/images/greyyellow.png"
+  },
+  {
+    "id": 2,
+    "name": "Black",
+    "desc": "Very Cozy Jacket Tempor amet ea amet voluptua eirmod, tempor sed et aliquyam et amet, et elitr elitr et takimata et. Eirmod ipsum.",
+    "price": 4000,
+    "color": "0xff3c3b3b",
+    "size" : "40",
+    "image": "assets/images/black.png"
+  },
+  {
+    "id": 3,
+    "name": "Dark Blue",
+    "desc": "Stylish Jacket  Sit ut lorem no et labore diam amet aliquyam. Voluptua aliquyam diam duo erat diam, consetetur sed elitr duo sed.",
+    "price": 2500,
+    "color": "0xff87e4ff",
+    "size" : "42",
+    "image": "assets/images/darkblue.png"
+  },
+  {
+    "id": 4,
+    "name": "Pink Blue",
+    "desc": "Very Expensive Jacket Elitr ea est diam et clita. Sed eos elitr kasd justo. Est stet at ut diam. Est diam diam accusam.",
+    "price": 10000,
+    "color": "0xff4dd3f6",
+    "size" : "44",
+    "image": "assets/images/pinkblue.png"
+  },
+  {
+    "id": 5,
+    "name": "Blue Green",
+    "desc": "Hot Red Jacket Rebum amet lorem sanctus sit labore diam invidunt ipsum diam eirmod, erat kasd nonumy stet sea invidunt ut, rebum sit.",
+    "price": 30000,
+    "color": "0xff43b268",
+    "size" : "42",
+    "image": "assets/images/bluegreen.png"
+  },
+  {
+    "id": 6,
+    "name": "Orange Grey",
+    "desc": "Girlish Jacket  Aliquyam accusam et stet no takimata amet, sea takimata et invidunt sea voluptua ipsum erat et voluptua. Ipsum sea justo.",
+    "price": 999,
+    "color": "0xfff86638",
+    "size" : "40",
+    "image": "assets/images/orangegrey.png"
+  },
+  {
+    "id": 7,
+    "name": "Dark Red",
+    "desc": "Nice Jacket  Stet duo amet lorem lorem eos accusam sit et. At elitr et sit sit, elitr et nonumy takimata voluptua rebum,.",
+    "price": 700,
+    "color": "0xffff2231",
+    "size" : "42",
+    "image": "assets/images/darkred.png"
+  },
+  {
+    "id": 8,
+    "name": "Blue Orange",
+    "desc": "Cool Boy Jacket  Sanctus et takimata labore diam eos dolore labore invidunt eirmod. Consetetur elitr nonumy justo lorem amet sit et, clita vero.",
+    "price": 1200,
+    "color": "0xffff5c20",
+    "size" : "41",
+    "image": "assets/images/blueorange.png"
+  },
+  {
+    "id": 9,
+    "name": "Green Blue",
+    "desc": "Warm Jacket  Consetetur dolore et sed ut dolores aliquyam. Ipsum eos stet stet dolor aliquyam ipsum amet. Accusam ipsum consetetur et clita.",
+    "price": 1500,
+    "color": "0xffcddc2f",
+    "size" : "42",
+    "image": "assets/images/greenblue.png"
+  },
+  {
+    "id": 10,
+    "name": "Black Orange",
+    "desc": "Pretty Jacket Sit lorem magna et nonumy tempor kasd rebum dolore sed. Ut clita ipsum dolor lorem sit, vero ipsum sit stet.",
+    "price": 4000,
+    "color": "0xff15110e",
+    "size" : "38",
+    "image": "assets/images/blackorange.png"
+  }
+]
