@@ -7,7 +7,7 @@ import 'package:welcome_loginsignup_dashboard/model/cart%20model/product_model.d
 import 'package:welcome_loginsignup_dashboard/view/cart/component/cart_page_background.dart';
 import 'package:welcome_loginsignup_dashboard/view/cart/component/categories_header.dart';
 import 'package:welcome_loginsignup_dashboard/view/cart/component/item_card.dart';
-import 'package:welcome_loginsignup_dashboard/view/cart/component/product_detail.dart';
+import 'package:welcome_loginsignup_dashboard/view/cart/product%20details/product_detail.dart';
 import 'package:welcome_loginsignup_dashboard/view/custom_widget/my_theme.dart';
 
 class CartPage extends StatelessWidget {
