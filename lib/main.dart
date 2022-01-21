@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:welcome_loginsignup_dashboard/controller/cart%20controllers/product%20details/cart_controller.dart';
 
 import 'package:welcome_loginsignup_dashboard/controller/gender_selection_controller.dart';
 import 'package:welcome_loginsignup_dashboard/controller/login_controller.dart';
@@ -31,6 +32,8 @@ class MyApp extends StatelessWidget {
   final isLoggedIn;
   GenderSelectionController genderSelectionController =
       Get.put(GenderSelectionController());
+
+  CartController cartController = Get.put(CartController());
   MyApp({
     Key? key,
     required this.isLoggedIn,

@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'package:welcome_loginsignup_dashboard/model/cart%20model/product_model.dart';
+import 'package:welcome_loginsignup_dashboard/view/cart/product%20details/component/product_color_size.dart';
+import 'package:welcome_loginsignup_dashboard/view/cart/product%20details/component/product_counter_fav_icon.dart';
+import 'package:welcome_loginsignup_dashboard/view/cart/product%20details/component/product_description.dart';
+import 'package:welcome_loginsignup_dashboard/view/cart/product%20details/component/product_details_color.dart';
 import 'package:welcome_loginsignup_dashboard/view/cart/product%20details/component/product_details_image_title_price.dart';
 import 'package:welcome_loginsignup_dashboard/view/custom_widget/my_theme.dart';
 
@@ -40,51 +44,13 @@ class ProductDetailsBody extends StatelessWidget {
                   ),
                   child: Column(
                     children: [
-                      Row(
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Text(
-                                "Color",
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 20,
-                                ),
-                              ),
-                              Row(
-                                children: [
-                                  Container(
-                                    width: 24,
-                                    height: 24,
-                                    margin: EdgeInsets.only(
-                                        top: MyTheme.defaultPadding * 0.5,
-                                        left: MyTheme.defaultPadding * 0.5,
-                                        right: MyTheme.defaultPadding * 0.5),
-                                    padding: EdgeInsets.all(1.0),
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      border: Border.all(
-                                        color: Colors.red,
-                                      ),
-                                    ),
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        color: Colors.red,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          )
-                        ],
-                      )
+                      ProductColorSize(product: product),
+                      ProductDescription(product: product),
+                      ProductCounterWithFavIcon(product: product),
                     ],
                   ),
                 ),
-                ProductDetailsImageTitlePrice(product: product)
+                ProductDetailsImageTitlePrice(product: product),
               ],
             ),
           ),
