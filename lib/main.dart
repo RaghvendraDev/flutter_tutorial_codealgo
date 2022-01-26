@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:welcome_loginsignup_dashboard/controller/cart%20controllers/product%20details/cart_controller.dart';
+import 'package:welcome_loginsignup_dashboard/controller/cart%20controllers/product%20details/fav_counter_controller.dart';
+import 'package:welcome_loginsignup_dashboard/controller/controller_binding.dart';
 
 import 'package:welcome_loginsignup_dashboard/controller/gender_selection_controller.dart';
 import 'package:welcome_loginsignup_dashboard/controller/login_controller.dart';
@@ -34,6 +36,9 @@ class MyApp extends StatelessWidget {
       Get.put(GenderSelectionController());
 
   CartController cartController = Get.put(CartController());
+
+  FavCounterController favCounterController = Get.put(FavCounterController());
+
   MyApp({
     Key? key,
     required this.isLoggedIn,
@@ -42,6 +47,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      // initialBinding: ControllerBinding(),
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.system,
       theme: MyTheme.lightTheme(context),

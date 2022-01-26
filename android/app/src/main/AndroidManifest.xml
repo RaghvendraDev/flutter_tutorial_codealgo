@@ -6,8 +6,8 @@
     <uses-permission android:name = "android.permission.READ_EXTERNAL_STORAGE"/>
 
    <application
-        android:label="welcome_loginsignup_dashboard"
-        android:icon="@mipmap/ic_launcher">
+        android:label="Code Algo Tutorial"
+        android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
