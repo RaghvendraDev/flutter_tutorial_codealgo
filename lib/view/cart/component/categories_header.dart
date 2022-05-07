@@ -17,13 +17,13 @@ class Categories extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemCount: categoryController.categoryList.length,
         itemBuilder: (context, index) {
-          return buildCategory(index);
+          return buildCategory(index, context);
         },
       ),
     );
   }
 
-  Widget buildCategory(int index) {
+  Widget buildCategory(int index, BuildContext context) {
     return InkWell(
       onTap: () {
         categoryController.changeIndex(index);
@@ -39,8 +39,8 @@ class Categories extends StatelessWidget {
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   color: categoryController.currentIndex.value == index
-                      ? Colors.white
-                      : Colors.white30,
+                      ? Theme.of(context).colorScheme.primary
+                      : Theme.of(context).colorScheme.primaryVariant,
                 ),
               ),
               Container(
@@ -48,7 +48,7 @@ class Categories extends StatelessWidget {
                 height: 2,
                 width: 30,
                 color: categoryController.currentIndex.value == index
-                    ? Colors.white
+                    ? Theme.of(context).colorScheme.primary
                     : Colors.transparent,
               ),
             ],

@@ -34,11 +34,10 @@ class LoginController extends GetxController {
 
       isDataSubmitting.value = false;
 
-      Get.off(() => HomePage());
-
       Map<String, dynamic> responseData = jsonDecode(response.body);
       if (responseData['rMsg'] == "success") {
         isDataReadingCompleted.value = true;
+        Get.off(() => HomePage());
       } else {
         Get.snackbar(
           "Login Failed",

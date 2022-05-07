@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:welcome_loginsignup_dashboard/controller/signup_controller.dart';
+import 'package:welcome_loginsignup_dashboard/view/custom_widget/my_theme.dart';
 
 class SignUpProfilePicture extends StatelessWidget {
   File? pickedFile;
@@ -30,7 +31,10 @@ class SignUpProfilePicture extends StatelessWidget {
         Positioned(
           bottom: 0,
           child: InkWell(
-            child: Icon(Icons.camera),
+            child: Icon(
+              Icons.camera,
+              color: MyTheme.whiteColor,
+            ),
             onTap: () {
               print("Camera clicked");
               showModalBottomSheet(

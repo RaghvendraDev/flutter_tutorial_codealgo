@@ -12,9 +12,16 @@ class FavoriateList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Favoriate List"),
+          backgroundColor: Colors.transparent,
+          title: Text(
+            "Favoriate List",
+            style: TextStyle(color: Theme.of(context).colorScheme.primary),
+          ),
           leading: IconButton(
-            icon: SvgPicture.asset("assets/svg/back.svg"),
+            icon: SvgPicture.asset(
+              "assets/svg/back.svg",
+              color: Theme.of(context).colorScheme.primary,
+            ),
             onPressed: () {
               Get.back();
             },
